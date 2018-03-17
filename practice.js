@@ -18,7 +18,10 @@ var arr = [10,20,30];
 */
 
 //Code Here
-
+function first(arr)
+{
+  return arr[0];
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -33,7 +36,10 @@ var arr = [40,50,60];
 */
 
 //Code Here
-
+function last(arr)
+{
+  return arr[2];
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -48,6 +54,14 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 */
 
 //Code Here
+function looper(family)
+{
+  for (var i = 0; i< family.length; i++)
+  {
+    alert(family[i]);
+  }
+}
+
 
 
 
@@ -63,7 +77,13 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 */
 
 //Code Here
-
+function reversedLooper(letters)
+{
+  for( i= letters.length-1 ; i>=0; i--)
+  {
+   alert(letters[i]);
+  }
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -78,7 +98,20 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 */
 
 //Code Here
+function evenFinder(nums)
+{
+  var newArr = [];
+  for(var i= 0; i< nums.length ;i++)
+  {
+    if(nums[i]% 2 ===0)
+    {
+newArr.push(nums[i]);
+    }
 
+  }
+  
+  return newArr;
+}
 
 
 ////////// EXTRA PRACTICE PROBLEMS BELOW //////////
@@ -91,10 +124,34 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 /*
   Write a function called divider that is given one argument, numbersArray.
-  Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
+  Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray)
+   and the second item in the Array being the odds array (all the odd values from numbersArray).
 */
 
 //Code Here
+function divider(numbersArray)
+{
+  var evens =[];
+  var odds =[];
+  var mixArray=[];
+
+  for(var i= 0; i< numbersArray.length ;i++)
+  {
+    if(numbersArray[i]% 2 ==0)
+    {
+evens.push(numbersArray[i]);
+    }
+    if(numbersArray[i]% 2 !==0)
+    {
+odds.push(numbersArray[i]);
+  }
+
+
+}
+mixArray.push(evens,odds);
+return mixArray;
+}
+
 
 
 
@@ -108,14 +165,34 @@ var getRandomArbitrary = function() {
 
 /* 
   var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
-  Above you're given a function that will return a random number between 0 and 30. There is also a commented out array full of numbers to help you visualize what your function will be receiving.
+  Above you're given a function that will return a random number between 0 and 30. There is also a 
+  commented out array full of numbers 
+  to help you visualize what your function will be receiving.
   
-  Write a function named finder that will get a random number (by invoking getRandomArbitrary).
-  Loop through the array (that will be passed in as a parameter) to see if that random number is in the array. 
+  Write a function named finder that will get a random number
+   (by invoking getRandomArbitrary).
+  Loop through the array (that will be passed in as a parameter) to see
+   if that random number is in the array. 
   If it is, return true, if it's not, return false
 */
 
+
 //Code Here
+// let numbers = [2, 5, 7]; num = 7
+
+function finder(numbers){
+  var num = getRandomArbitrary();
+  console.log("randome is" +num);
+  // let result = false;
+  for(var i= 0; i< numbers.length ;i++)
+  {
+    if(numbers[i]==num){
+      return true;
+    } 
+  }
+
+  return false;
+}
 
 
 
@@ -126,33 +203,75 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 // Do not edit the code above.
 
 /*
-  Here we're going to write a function that mimics going shopping and checking things off of our grocery list and adding new items to our list.
+  Here we're going to write a function that mimics going shopping and checking things off of our grocery list 
+  and adding new items to our list.
 
-  Write a function called removeItem that is given two arguments, the first is myGroceryList, and the second is an item to remove from myGroceryList. 
-  If the second argument (or the item to add or remove) matches an item in myGroceryList, remove that item from the your grocery list and return the new, updated grocery list.
+  Write a function called removeItem that is given two arguments, the first is myGroceryList, and the second
+   is an item to remove from myGroceryList. 
+  If the second argument (or the item to add or remove) matches an item in myGroceryList, remove that item
+   from the your grocery list and return the new, updated grocery list.
 
-  Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. 
+  Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList
+   and the second is an item to add to your grocery list. 
   In addItem add the item you passed in to myGroceryList then return the new, updated grocery list.
 
-  In both the removeItem function and the addItem function, you will also need to check for valid aurguments. SpecRunner will try to call your functions without passing in valid aurguments. 
+  In both the removeItem function and the addItem function, you will also need to check for valid aurguments. 
+  SpecRunner will try to call your functions without passing in valid aurguments. 
   When this happens, you will need to respond by returning an empty array.
 
   Here are some examples of calling your functions and what should be returned:
   removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 */
-
 //Code Here
+function removeItem(myGroceryList, item)
+{
+  //console.log(myGroceryList);
+  var newList = [];
+  for(var i= 0; i< myGroceryList.length ;i++)
+  {
+  if(myGroceryList[i]==item)
+  {
+    //myGroceryList[i].slice[i]
+     // console.log("new list is " + myGroceryList[i]);
+   myGroceryList.splice(i,1);
+  }
+}
+return myGroceryList;
+
+}
+
+
+function addItem(myGroceryList, item)
+{
+  
+myGroceryList.push(item);
+  console.log(myGroceryList);
+  return myGroceryList;
+}
+//addItem(myGroceryList, "hotdog");
+
 
 
 
 ////////// PROBLEM 9 //////////
 
 /*
-  Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
+  Write a function called maker that creates an array, fills that array with numbers from 1 to 215, 
+  then returns the array.
 */
 
 //Code Here
+function maker()
+{
+  var arr = [];
+  for(var i = 1; i<= 215; i++)
+  {
+    arr.push(i);
+  }
+return arr;
+}
+
 
 
 
@@ -169,6 +288,20 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
+
+function addTen(numbers)
+{
+  var newArr = [];
+  for (var i =0; i< numbers.length; i++)
+  {
+    newArr.push(parseInt(numbers[i], 10) +10);
+  }
+  return newArr;
+}
+
+
+
+
 
 
 
@@ -194,7 +327,13 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function longer(arr1, arr2)
+{
+  if(arr1.length>arr2.length)
+  return arr1;
+  else
+  return arr2;
+}
 
 
 /*
@@ -206,6 +345,23 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
+function both(arr1, arr2){
+  var newArr = [];
+  for(var i=0; i<arr1.length; i++)
+  {
+    for(var j=0; j<arr2.length; j++)
+    {
+      if(arr1[i]==arr2[j])
+      {
+        newArr.push(arr1[i]);
+      }
+      
+    }
+    
+  }
+return newArr;
+}
+
 
 
 
@@ -246,15 +402,25 @@ var colt = {
 */
 
 //Code Here
+devMountainEmployees.push(tyler);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
 
-
-
+devMountainEmployees.length;
 /*
   Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
   Loop through your devMountainEmployees until you find cahlan, then remove him from the array.
 */
 
 //Code Here
+for(var i = 0; i<devMountainEmployees.length; i++)
+{
+  if(devMountainEmployees[i] == cahlan)
+  {
+    devMountainEmployees.splice(i, 1);
+  }
+}
 
 
 
@@ -262,16 +428,19 @@ var colt = {
 
 
 /*
-  A very clean way to pass around large LISTS (arrays) of COLLECTIONS (objects) of Data is to have an Array full of objects. 
-  Create an empty array called users.
+  A very clean way to pass around large LISTS (arrays) of COLLECTIONS (objects) of Data is to have 
+  an Array full of objects. Create an empty array called users.
 */
 
 //Code Here
 
+var users = [];
+
 
 
 /*
-  Now add three user objects to your users array. Each user object should contain the following properties. name, email, password, username.
+  Now add three user objects to your users array. Each user object should contain the following properties. 
+  name, email, password, username.
 
   Include the following user1 object as one of the objects in your array.
 */
@@ -287,12 +456,29 @@ var user1 = {
 
 //Code Here
 
+  var user2 = {
+    name: 'abc',
+    email: 'tylermcginnis33.com',
+    password: 'iLoveJavaScript',
+    username: 'infiniteLoop'
+};
+var user3 = {
+  name: 'def',
+  email: 'tylermcginnis33@.com',
+  password: 'iLoveJavaScript',
+  username: 'infiniteLoop'
+};
 
+
+users.push(user1);
+users.push(user2, user3);
+console.log(users);
 
 /*
   Now you have a very common data structure. 
   Twitter is a good use case.
-  It's easy to imagine that your followers list on Twitter is an Array full of objects and those objects contain properties about the specific person you follow.
+  It's easy to imagine that your followers list on Twitter is an Array full of objects and those objects
+   contain properties about the specific person you follow.
 
   Now let's say that Tyler decided to delete his account.
   Loop through your array of objects until you find Tyler's account (use tylermcginnis33@gmail.com to find him).
@@ -301,6 +487,13 @@ var user1 = {
 
 //Code Here
 
+for(var i= 0; i<users.length ; i++)
+{
+  if(users[i].email ==='tylermcginnis33@gmail.com'){
+    users.splice(i, 1);
+  }
+console.log("after deleting " + users);
+}
 
 
 /*
